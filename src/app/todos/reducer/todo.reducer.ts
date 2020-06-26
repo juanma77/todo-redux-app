@@ -5,7 +5,10 @@ import { CREAR_TODO_ACTION } from '../actions/todo.actions';
 
 // Nuestro estadoInicial es un arreglo de elementos del modelo Todo
 export const estadoInicial: Todo[] = [
-    new Todo('Salvar al mundo')
+    new Todo('Salvar al mundo'),
+    new Todo('Vencer a Thanos'),
+    new Todo('Comprar traje de Ironman'),
+    new Todo('Robar el escudo de Capitán América')
 ];
 
 // Aquí no debemos hacer un push directamente al state; regresamos el nuevo arreglo usando desestructuración y mandamos el nuevo state, es decir, extraemos cada uno de los items y los regresamos de manera independiente. Los tres puntos (operador spread) es para regresar un nuevo arreglo y para extraer cada uno de los todos que tenga ese nuevo arreglo de manera independiente. También creamos una nueva instancia del todo, y mandamos el texto que la persona escribe en pantalla 

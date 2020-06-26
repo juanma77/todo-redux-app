@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Todo } from '../models/todo.model';
+import { Store } from '@ngrx/store';
+import { AppState } from 'src/app/app.reducer';
 
 @Component({
   selector: 'app-todo-list',
@@ -7,9 +10,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TodoListComponent implements OnInit {
 
-  constructor() { }
+  public todos: Todo[] = [];  
 
+  constructor( private store: Store<AppState> ) {
+
+  }
+
+  // Aquí recibimos el arreglo de todos a través de la suscripción y lo igualamos a nuestro arreglo vacío; cada vez que se origina un cambio así estamos suscritos y se actualizará nuestro arreglo vacío de todos con el que obtenemos en la suscripción 
   ngOnInit() {
+
+    this.store.select('todos').subscribe( todos =>{
+      this.todos = todos; 
+    });
+    
   }
 
 }
