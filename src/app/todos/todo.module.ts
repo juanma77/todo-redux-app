@@ -7,11 +7,14 @@ import { TodoListComponent } from './todo-list/todo-list.component';
 import { TodoPageComponent } from './todo-page/todo-page.component';
 
 
-
+// En exports colocamos el componente que estará visible fuera de este módulo 
 @NgModule({
   declarations: [AddTodoComponent, TodoFooterComponent, TodoItemComponent, TodoListComponent, TodoPageComponent],
   imports: [
     CommonModule
+  ],
+  exports: [
+    TodoPageComponent
   ]
 })
 export class TodoModule { }
