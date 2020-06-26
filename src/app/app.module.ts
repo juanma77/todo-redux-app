@@ -8,6 +8,8 @@ import { FooterComponent } from './footer/footer.component';
 // Ngrx
 import { StoreModule } from '@ngrx/store';
 import { todoReducer } from './todos/reducer/todo.reducer';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -17,8 +19,11 @@ import { todoReducer } from './todos/reducer/todo.reducer';
   imports: [
     BrowserModule,
     TodoModule,
-    StoreModule.forRoot({ todos: todoReducer })
-
+    StoreModule.forRoot({ todos: todoReducer }),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25,
+      logOnly: environment.production
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
