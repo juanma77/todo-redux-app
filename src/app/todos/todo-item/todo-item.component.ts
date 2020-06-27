@@ -1,6 +1,9 @@
 import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
 import { Todo } from '../models/todo.model';
 import { FormControl, Validators } from '@angular/forms';
+import { AppState } from '../../app.reducer';
+import { Store } from '@ngrx/store';
+import { TOGGLE_TODO_ACTION } from '../actions/todo.actions';
 
 @Component({
   selector: 'app-todo-item',
@@ -21,7 +24,7 @@ export class TodoItemComponent implements OnInit {
   // Para obtener la referencia del html normal, es decir, el valor del elemento html que usamos en la vista 
   @ViewChild('inputHTML', { static:false }) txtInputHtml: ElementRef;
 
-  constructor() {
+  constructor( private store: Store<AppState>) {
    
   }
 
@@ -33,6 +36,11 @@ export class TodoItemComponent implements OnInit {
 
     this.txtEditar = new FormControl( this.todo.texto, Validators.required );
    
+    // Nos suscribimos a los cambios que sufra el check y disparamos la acción TOGGLE_TODO_ACTION mandando el id del todo  
+    this.checkCompletado.valueChanges.subscribe( actualValor =>{
+      this.store.dispatch(TOGGLE_TODO_ACTION({ id: this.todo.id })); 
+    }); 
+
   }
 
   // Tenemos que hacer el setTimeout para que haga el trabajo de un pequeño fix para que el focus se ejectute de forma adecuada
