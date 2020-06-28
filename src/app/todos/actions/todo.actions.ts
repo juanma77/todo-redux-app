@@ -16,3 +16,8 @@ export const EDITAR_TODO_ACTION = createAction(
     'EDITAR_TODO_ACTION',
     props<{ id: number, texto: string }>()
 );
+
+export const BORRAR_TODO_ACTION = createAction(
+    'BORRAR_TODO_ACTION',
+    props<{ id: number }>()
+);

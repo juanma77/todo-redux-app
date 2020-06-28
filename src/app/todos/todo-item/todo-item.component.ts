@@ -3,7 +3,7 @@ import { Todo } from '../models/todo.model';
 import { FormControl, Validators } from '@angular/forms';
 import { AppState } from '../../app.reducer';
 import { Store } from '@ngrx/store';
-import { TOGGLE_TODO_ACTION, EDITAR_TODO_ACTION } from '../actions/todo.actions';
+import { TOGGLE_TODO_ACTION, EDITAR_TODO_ACTION, BORRAR_TODO_ACTION } from '../actions/todo.actions';
 
 @Component({
   selector: 'app-todo-item',
@@ -70,6 +70,12 @@ export class TodoItemComponent implements OnInit {
 
     // La acción se dispara sólo si cambia el valor del check
     this.store.dispatch(EDITAR_TODO_ACTION( {id: this.todo.id, texto: this.txtEditar.value}));
+
+  }
+
+  public borrarTodo() {
+
+    this.store.dispatch( BORRAR_TODO_ACTION( { id: this.todo.id } ) );
 
   }
 
