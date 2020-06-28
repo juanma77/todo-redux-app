@@ -1,6 +1,6 @@
 import { Todo } from '../models/todo.model';
 import { createReducer, on } from '@ngrx/store';
-import { CREAR_TODO_ACTION, TOGGLE_TODO_ACTION } from '../actions/todo.actions';
+import { CREAR_TODO_ACTION, TOGGLE_TODO_ACTION, EDITAR_TODO_ACTION } from '../actions/todo.actions';
 
 
 // Nuestro estadoInicial es un arreglo de elementos del modelo Todo
@@ -21,6 +21,20 @@ const _todoReducer = createReducer( estadoInicial,
                 return {
                     ...todo,
                     completado: !todo.completado
+                }
+            }else {
+                return todo; 
+            }
+            
+        }); 
+    }),
+    on(EDITAR_TODO_ACTION, ( state, { id, texto } ) => {
+        return state.map( todo =>{
+            
+            if( todo.id === id ){
+                return {
+                    ...todo,
+                    texto: texto
                 }
             }else {
                 return todo; 
