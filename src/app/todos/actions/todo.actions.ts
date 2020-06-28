@@ -21,3 +21,8 @@ export const BORRAR_TODO_ACTION = createAction(
     'BORRAR_TODO_ACTION',
     props<{ id: number }>()
 );
+
+export const TOGGLE_ALL_ACTION = createAction(
+    'TOGGLE_ALL_ACTION',
+    props<{ completado: boolean }>()
+);
