@@ -7,12 +7,12 @@ import { FooterComponent } from './footer/footer.component';
 
 // Ngrx
 import { StoreModule } from '@ngrx/store';
-import { todoReducer } from './todos/reducer/todo.reducer';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 
 // Reactive forms 
 import { ReactiveFormsModule } from '@angular/forms';
+import { appReducers } from './app.reducer';
 
 @NgModule({
   declarations: [
@@ -22,7 +22,7 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     TodoModule,
-    StoreModule.forRoot({ todos: todoReducer }),
+    StoreModule.forRoot( appReducers ),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: environment.production
