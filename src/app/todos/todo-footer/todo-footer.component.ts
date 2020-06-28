@@ -14,15 +14,25 @@ export class TodoFooterComponent implements OnInit {
 
   public filtros: filtrosValidos[] = ['all', 'completed', 'pending'];
 
+  public totalPendientes: number = 0; 
+
   constructor( private store: Store<AppState> ) { }
 
   ngOnInit() {
 
-    this.store.select('filtro').subscribe( filtro =>{
+    /*this.store.select('filtro').subscribe( filtro =>{
       
       // console.log(filtro);
 
       this.filtroActual = filtro; 
+
+    });*/
+
+
+    // Aquí nos suscribimos al store e igualamos el totalPendientes con un nuevo arreglo que tiene los todos no completados para saber cuantos elementos hay pendientes 
+    this.store.subscribe( state =>{
+
+      this.totalPendientes = state.todos.filter( todo => !todo.completado ).length
 
     });
 
