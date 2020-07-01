@@ -15,7 +15,7 @@ export class TodoListComponent implements OnInit {
   public todos: Todo[] = [];  
 
   // Esto es para aplicar el filtro visualmente
-  public filtroAplicado: filtrosValidos; 
+  public filtroActual: filtrosValidos; 
 
   constructor( private store: Store<AppState> ) {
 
@@ -29,17 +29,18 @@ export class TodoListComponent implements OnInit {
     }); */ 
 
     this.store.subscribe( state =>{
+      
       this.todos = state.todos; 
-      this.filtroAplicado = state.filtro; 
+      this.filtroActual = state.filtro; 
 
-      console.log( this.todos );
+      //console.log( this.todos );
 
     });
 
     // Otra forma de hacer lo de arriba 
     /*this.store.subscribe( { todos, filtro } =>{
       this.todos = todos; 
-      this.filtroAplicado = filtro; 
+      this.filtroActual = filtro; 
 
       console.log( this.todos );
 

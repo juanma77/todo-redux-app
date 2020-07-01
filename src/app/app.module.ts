@@ -9,10 +9,11 @@ import { FooterComponent } from './footer/footer.component';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
+import { appReducers } from './app.reducer';
 
 // Reactive forms 
 import { ReactiveFormsModule } from '@angular/forms';
-import { appReducers } from './app.reducer';
+
 
 @NgModule({
   declarations: [

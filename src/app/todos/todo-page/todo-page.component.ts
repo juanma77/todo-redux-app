@@ -23,7 +23,7 @@ export class TodoPageComponent implements OnInit {
 
     this.completado = !this.completado; 
 
-    console.log( this.completado );
+    //console.log( this.completado );
 
     this.store.dispatch( TOGGLE_ALL_ACTION ({ completado: this.completado }))
 

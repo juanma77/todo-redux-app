@@ -11,8 +11,8 @@ export class FiltroPipe implements PipeTransform {
 
   transform( todos: Todo[], filtro: filtrosValidos ): Todo[]{
 
-    console.log( todos );
-    console.log( filtro ); 
+    //console.log( todos );
+    //console.log( filtro ); 
 
     switch( filtro ) {
 
