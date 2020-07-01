@@ -40,7 +40,6 @@ export class TodoFooterComponent implements OnInit {
 
   public cambiarFiltro( filtro: filtrosValidos ) {
 
-    // console.log(filtro);
     
     this.store.dispatch(SET_FILTRO_ACTION( { filtro: filtro } ))  
 

@@ -8,10 +8,11 @@ import { TodoPageComponent } from './todo-page/todo-page.component';
 
 // Reactive forms 
 import { ReactiveFormsModule } from '@angular/forms';
+import { FiltroPipe } from './pipes/filtro.pipe';
 
 // En exports colocamos el componente que estará visible fuera de este módulo 
 @NgModule({
-  declarations: [AddTodoComponent, TodoFooterComponent, TodoItemComponent, TodoListComponent, TodoPageComponent],
+  declarations: [AddTodoComponent, TodoFooterComponent, TodoItemComponent, TodoListComponent, TodoPageComponent, FiltroPipe],
   imports: [
     CommonModule,
     ReactiveFormsModule

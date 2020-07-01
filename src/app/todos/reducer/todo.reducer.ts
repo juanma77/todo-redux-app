@@ -1,7 +1,6 @@
 import { Todo } from '../models/todo.model';
-import { createReducer, on, State } from '@ngrx/store';
+import { createReducer, on } from '@ngrx/store';
 import { CREAR_TODO_ACTION, TOGGLE_TODO_ACTION, EDITAR_TODO_ACTION, BORRAR_TODO_ACTION, TOGGLE_ALL_ACTION } from '../actions/todo.actions';
-
 
 // Nuestro estadoInicial es un arreglo de elementos del modelo Todo
 export const estadoInicial: Todo[] = [
