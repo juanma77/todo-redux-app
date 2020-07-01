@@ -26,3 +26,7 @@ export const TOGGLE_ALL_ACTION = createAction(
     'TOGGLE_ALL_ACTION',
     props<{ completado: boolean }>()
 );
+
+export const LIMPIAR_TODOS_COMPLETADOS_ACTION = createAction(
+    'LIMPIAR_TODOS_COMPLETADOS_ACTION'  
+);

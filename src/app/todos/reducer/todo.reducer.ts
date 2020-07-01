@@ -1,6 +1,6 @@
 import { Todo } from '../models/todo.model';
 import { createReducer, on } from '@ngrx/store';
-import { CREAR_TODO_ACTION, TOGGLE_TODO_ACTION, EDITAR_TODO_ACTION, BORRAR_TODO_ACTION, TOGGLE_ALL_ACTION } from '../actions/todo.actions';
+import { CREAR_TODO_ACTION, TOGGLE_TODO_ACTION, EDITAR_TODO_ACTION, BORRAR_TODO_ACTION, TOGGLE_ALL_ACTION, LIMPIAR_TODOS_COMPLETADOS_ACTION } from '../actions/todo.actions';
 
 // Nuestro estadoInicial es un arreglo de elementos del modelo Todo
 export const estadoInicial: Todo[] = [
@@ -54,7 +54,10 @@ const _todoReducer = createReducer( estadoInicial,
             completado: completado
         }
 
-    }))
+    })),
+    
+    // Aquí solo nos interesan los todos que no están completados (todo.completado === false)
+    on(LIMPIAR_TODOS_COMPLETADOS_ACTION, state => state.filter( todo => !todo.completado ) )
 )    
 
 export function todoReducer(state, action) {
